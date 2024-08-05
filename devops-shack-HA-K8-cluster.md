@@ -3,7 +3,7 @@
 To set up a highly available Kubernetes cluster with two master nodes and three worker nodes without using a cloud load balancer, you can use a virtual machine to act as a load balancer for the API server. Here are the detailed steps for setting up such a cluster:
 
 ### Prerequisites
-- 2 master nodes
+- 3 master nodes
 - 3 worker nodes
 - 1 load balancer node
 - All nodes should be running a Linux distribution like Ubuntu 
@@ -79,7 +79,7 @@ To set up a highly available Kubernetes cluster with two master nodes and three 
    kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v0.49.0/deploy/static/provider/baremetal/deploy.yaml
    ```
 
-### Step 4: Join the Second Master Node
+### Step 4: Join the Second & third Master Node
 1. **Get the join command and certificate key from the first master node:**
    ```bash
    kubeadm token create --print-join-command --certificate-key $(kubeadm init phase upload-certs --upload-certs | tail -1)
